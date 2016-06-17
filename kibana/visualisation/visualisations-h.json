@@ -1,0 +1,228 @@
+[
+  {
+    "_id": "appMetricsH:-appsByMemUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: appsByMemUtil",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.allocatedMB\",\"customLabel\":\"allocatedMB\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"apps.app.id\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"allocatedMB\":\"#962D82\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-appsByTool",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: appsByTool",
+      "visState": "{\"title\":\"\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"apps.app.name\",\"include\":{\"pattern\":\"\"},\"size\":10,\"order\":\"desc\",\"orderBy\":\"2\",\"customLabel\":\"Tool\"}},{\"id\":\"2\",\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.id\",\"customLabel\":\"number of applications\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"number of applications\":\"#7EB26D\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-appsByType",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: appsByType",
+      "visState": "{\"title\":\"appsbytype\",\"type\":\"area\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"smoothLines\":false,\"scale\":\"linear\",\"interpolate\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.id\",\"customLabel\":\"number of applications\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"apps.app.applicationType\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"3\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"spark\":\"#629E51\",\"mapreduce\":\"#E0752D\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-appsByvCoreUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: appsByvCoreUtil",
+      "visState": "{\"title\":\"appMetricsH: appsByMemUtil\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.allocatedVCores\",\"customLabel\":\"allocatedMB\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"apps.app.id\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"allocatedMB\":\"#962D82\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-queuesBynumApps",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: queuesBynumApps",
+      "visState": "{\"title\":\"\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"apps.app.queue\",\"exclude\":{\"pattern\":\"_default\"},\"size\":20,\"order\":\"desc\",\"orderBy\":\"2\",\"customLabel\":\"scheduler queues\"}},{\"id\":\"2\",\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.id\",\"customLabel\":\"number of applications\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"apps.app.user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"2\",\"customLabel\":\"\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-usersByMemUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: usersByMemUtil",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{\"customLabel\":\"allocatedMB\",\"field\":\"apps.app.allocatedMB\"},\"schema\":\"metric\",\"type\":\"avg\"},{\"id\":\"2\",\"params\":{\"customInterval\":\"2h\",\"extended_bounds\":{},\"field\":\"@timestamp\",\"interval\":\"auto\",\"min_doc_count\":1},\"schema\":\"segment\",\"type\":\"date_histogram\"},{\"id\":\"3\",\"params\":{\"customLabel\":\"\",\"field\":\"apps.app.user\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":5},\"schema\":\"group\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"interpolate\":\"linear\",\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"title\":\"appsbymemory\",\"type\":\"area\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "appMetricsH:-usersByvCoreUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "appMetricsH: usersByvCoreUtil",
+      "visState": "{\"title\":\"appMetricsH: usersByMemUtil\",\"type\":\"area\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"interpolate\":\"linear\",\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"apps.app.allocatedVCores\",\"customLabel\":\"allocatedvCores\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"apps.app.user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"apps-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "clusterMetricsH:-appStats",
+    "_type": "visualization",
+    "_source": {
+      "title": "clusterMetricsH: appStats",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"appsRunning\",\"customLabel\":\"appsRunning\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"appsFailed\",\"customLabel\":\"appsFailed\"}},{\"id\":\"4\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"appsKilled\",\"customLabel\":\"appsKilled\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"appsRunning\":\"#629E51\",\"appsFailed\":\"#BF1B00\",\"appsKilled\":\"#E0752D\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"cmetrics-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "clusterMetricsH:-MemoryUtilisation",
+    "_type": "visualization",
+    "_source": {
+      "title": "clusterMetricsH: MemoryUtilisation",
+      "visState": "{\"title\":\"clusterMetrics: MemoryUtilisation\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"allocatedMB\",\"customLabel\":\"allocatedMemory\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"totalMB\",\"customLabel\":\"totalMemory\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Average allocatedMB\":\"#1F78C1\",\"Average totalMB\":\"#7EB26D\",\"allocatedMemory\":\"#0A50A1\",\"totalMemory\":\"#629E51\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"cmetrics-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "clusterMetricsH:-NodeStatus",
+    "_type": "visualization",
+    "_source": {
+      "title": "clusterMetricsH: NodeStatus",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"activeNodes\",\"customLabel\":\"activeNodes\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"custom\",\"customInterval\":\"10m\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"decommissionedNodes\",\"customLabel\":\"decommissionedNodes\"}},{\"id\":\"4\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"lostNodes\",\"customLabel\":\"lostNodes\"}},{\"id\":\"5\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"unhealthyNodes\",\"customLabel\":\"unhealthyNodes\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"activeNodes\":\"#629E51\",\"decommissionedNodes\":\"#962D82\",\"lostNodes\":\"#BF1B00\",\"unhealthyNodes\":\"#E0752D\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"cmetrics-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "clusterMetricsH:-vCoreUtilisation",
+    "_type": "visualization",
+    "_source": {
+      "title": "clusterMetricsH: vCoreUtilisation",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"allocatedVirtualCores\",\"customLabel\":\"allocatedVCores\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"totalVirtualCores\",\"customLabel\":\"totalVCores\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"allocatedVCores\":\"#0A50A1\",\"totalVCores\":\"#629E51\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"cmetrics-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "nodeMetricsH:-nodesByMemUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "nodeMetricsH: nodesByMemUtil",
+      "visState": "{\"title\":\"nodesbymemory\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"nodes.node.usedMemoryMB\",\"customLabel\":\"usedMemory\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"nodes.node.nodeHostName\",\"exclude\":{\"pattern\":\"cern.ch\"},\"size\":100,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"nodeNames\"}},{\"id\":\"3\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"nodes.node.availMemoryMB\",\"customLabel\":\"availableMemory\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Average nodes.node.usedMemoryMB\":\"#E0752D\",\"Average nodes.node.availMemoryMB\":\"#629E51\",\"usedMemory\":\"#E0752D\",\"availableMemory\":\"#629E51\"}}}",
+      "description": "",
+      "savedSearchId": "nodes-h",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "nodeMetricsH:-nodesByvCoreUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "nodeMetricsH: nodesByvCoreUtil",
+      "visState": "{\"aggs\":[{\"id\":\"2\",\"params\":{\"customLabel\":\"nodeNames\",\"exclude\":{\"pattern\":\"cern.ch\"},\"field\":\"nodes.node.nodeHostName\",\"order\":\"desc\",\"orderBy\":\"_term\",\"size\":100},\"schema\":\"segment\",\"type\":\"terms\"},{\"id\":\"3\",\"params\":{\"customLabel\":\"usedVirtualCores\",\"field\":\"nodes.node.usedVirtualCores\"},\"schema\":\"metric\",\"type\":\"avg\"},{\"id\":\"4\",\"params\":{\"customLabel\":\"availableVirtualCores\",\"field\":\"nodes.node.availableVirtualCores\"},\"schema\":\"metric\",\"type\":\"avg\"}],\"listeners\":{},\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"title\":\"nodeMetricsH: nodesByvCoreUtil\",\"type\":\"histogram\"}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"availableVirtualCores\":\"#629E51\",\"usedVirtualCores\":\"#E0752D\"},\"legendOpen\":true}}",
+      "description": "",
+      "savedSearchId": "nodes-h",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "schedMetricsH:-queuesByMemUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "schedMetricsH: queuesByMemUtil",
+      "visState": "{\"title\":\"schedMetricsH: queuesByMemUtil\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"rootQueue.childQueues.queueName\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"2\",\"customLabel\":\"scheduler Queues\"}},{\"id\":\"5\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.steadyFairResources.memory\",\"customLabel\":\"steadyFairMemory\"}},{\"id\":\"6\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.usedResources.memory\",\"customLabel\":\"usedMemory\"}},{\"id\":\"4\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.minResources.memory\",\"customLabel\":\"minMemory\"}},{\"id\":\"2\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.maxResources.memory\",\"customLabel\":\"maxMemory\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"maxMemory\":\"#629E51\",\"minMemory\":\"#0A50A1\",\"usedMemory\":\"#E0752D\",\"steadyFairMemory\":\"#962D82\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"sched-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "schedMetricsH:-queuesByvCoresUtil",
+    "_type": "visualization",
+    "_source": {
+      "title": "schedMetricsH: queuesByvCoresUtil",
+      "visState": "{\"title\":\"schedMetricsH: queuesByvCores\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"rootQueue.childQueues.queueName\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"2\",\"customLabel\":\"scheduler Queues\"}},{\"id\":\"5\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.steadyFairResources.vCores\",\"customLabel\":\"steadyFairvCores\"}},{\"id\":\"6\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.usedResources.vCores\",\"customLabel\":\"usedvCores\"}},{\"id\":\"4\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.minResources.vCores\",\"customLabel\":\"minvCores\"}},{\"id\":\"2\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"rootQueue.childQueues.maxResources.vCores\",\"customLabel\":\"maxvCores\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"maxMemory\":\"#629E51\",\"minMemory\":\"#0A50A1\",\"usedMemory\":\"#E0752D\",\"steadyFairMemory\":\"#962D82\",\"maxvCores\":\"#629E51\",\"minvCores\":\"#E5AC0E\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"sched-h\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  }
+  {
+    "_id": "clusterMetricsH:-appsSubmitted",
+    "_type": "visualization",
+    "_source": {
+      "title": "clusterMetricsH: appsSubmitted",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"appsSubmitted\",\"customLabel\":\"appsSubmitted\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"cmetrics-h\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
